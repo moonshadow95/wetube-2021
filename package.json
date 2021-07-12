@@ -1,0 +1,28 @@
+{
+  "name": "wetube-2021",
+  "version": "1.0.0",
+  "description": "Youtube Clone",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moonshadow95/wetube-2021.git"
+  },
+  "scripts": {
+    "dev": "nodemon -L --exec babel-node src/index.js"
+  },
+  "author": "Chul Jong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moonshadow95/wetube-2021/issues"
+  },
+  "homepage": "https://github.com/moonshadow95/wetube-2021#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "nodemon": "^2.0.12"
+  }
+}
