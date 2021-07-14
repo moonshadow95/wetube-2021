@@ -1,9 +1,9 @@
 extends base.pug
+include mixins/video
 
 block content
-  h1 Welcome
-  ul
-    each video in videos 
-      li=video
-    else 
-      li No video..
+  h2 Welcome to Wetube!
+  each info in videos 
+    +video(info)
+  else 
+    li No video..
