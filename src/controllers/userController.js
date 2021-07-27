@@ -103,7 +103,6 @@ export const finishGithubLogin = async (req, res) => {
         },
       })
     ).json();
-    console.log(userData);
     const emailData = await (
       await fetch(`${apiUrl}/user/emails`, {
         headers: {
@@ -137,12 +136,33 @@ export const finishGithubLogin = async (req, res) => {
   }
 };
 
-export const getEdit = (req, res) => {
+export const getEditProfile = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
 };
 
-export const postEdit = (req, res) => {
-  return res.render("edit-profile");
+export const postEditProfile = async (req, res) => {
+  const {
+    body: { name, email, username, location },
+    session: {
+      user: { _id },
+    },
+  } = req;
+  const exists = await User.exists({ $or: [{ username }, { email }] });
+  if (exists) {
+    console.log("O");
+  }
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+  req.session.user = updatedUser;
+  return res.redirect("/users/edit");
 };
 
 export const logout = (req, res) => {
