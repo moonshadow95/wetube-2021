@@ -17,7 +17,7 @@ export const postJoin = async (req, res) => {
   if (exists) {
     return res.status(400).render("join", {
       pageTitle,
-      errorMessage: "Username/Email is already taken.",
+      errorMessage: "Username/Email already in use.",
     });
   }
 
@@ -149,7 +149,10 @@ export const postEditProfile = async (req, res) => {
   } = req;
   const exists = await User.exists({ $or: [{ username }, { email }] });
   if (exists) {
-    console.log("O");
+    return res.status(400).render("edit-profile", {
+      pageTitle: "Edit Profile",
+      errorMessage: "Username/email already in use.",
+    });
   }
   const updatedUser = await User.findByIdAndUpdate(
     _id,
