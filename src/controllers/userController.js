@@ -2,6 +2,8 @@ import User from "../models/User";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
+const errorMessage = "Username/Email already in use.";
+
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 
 export const postJoin = async (req, res) => {
@@ -17,7 +19,7 @@ export const postJoin = async (req, res) => {
   if (exists) {
     return res.status(400).render("join", {
       pageTitle,
-      errorMessage: "Username/Email already in use.",
+      errorMessage,
     });
   }
 
@@ -142,24 +144,35 @@ export const getEditProfile = (req, res) => {
 
 export const postEditProfile = async (req, res) => {
   const {
-    body: { name, email, username, location },
+    body: { name, email: newEmail, username: newUsername, location },
     session: {
-      user: { _id },
+      user: { _id, email, username },
     },
   } = req;
-  const exists = await User.exists({ $or: [{ username }, { email }] });
-  if (exists) {
-    return res.status(400).render("edit-profile", {
-      pageTitle: "Edit Profile",
-      errorMessage: "Username/email already in use.",
-    });
+
+  let comparison = [];
+
+  if (newEmail === email) {
+    comparison.push({ email: newEmail });
+  }
+  if (newUsername === username) {
+    comparison.push({ username: newUsername });
+  }
+  if (comparison.length > 0) {
+    const existingUser = await User.findOne({ $or: comparison });
+    if (existingUser && existingUser._id.toString() !== _id) {
+      return res.status(400).render("edit-profile", {
+        pageTitle: "Edit Profile",
+        errorMessage,
+      });
+    }
   }
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
       name,
-      email,
-      username,
+      email: newEmail,
+      username: newUsername,
       location,
     },
     { new: true }
