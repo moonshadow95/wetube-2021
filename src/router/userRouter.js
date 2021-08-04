@@ -1,13 +1,13 @@
 import express from "express";
 import {
   logout,
-  see,
   finishGithubLogin,
   startGithubLogin,
   getEditProfile,
   postEditProfile,
   getChangePassword,
   postChangePassword,
+  userProfile,
 } from "../controllers/userController";
 import {
   protectorMiddleware,
@@ -30,6 +30,6 @@ userRouter
   .post(postChangePassword);
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
-userRouter.get("/:id", see);
+userRouter.get("/:id", userProfile);
 
 export default userRouter;
