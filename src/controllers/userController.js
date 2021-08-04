@@ -2,8 +2,6 @@ import User from "../models/User";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
-const errorMessage = "Username/Email already in use.";
-
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 
 export const postJoin = async (req, res) => {
@@ -19,7 +17,7 @@ export const postJoin = async (req, res) => {
   if (exists) {
     return res.status(400).render("join", {
       pageTitle,
-      errorMessage,
+      errorMessage: "Username/Email already in use.",
     });
   }
 
@@ -164,7 +162,7 @@ export const postEditProfile = async (req, res) => {
     if (existingUser && existingUser._id.toString() !== _id) {
       return res.status(400).render("edit-profile", {
         pageTitle: "Edit Profile",
-        errorMessage,
+        errorMessage: "Username/Email already in use.",
       });
     }
   }
