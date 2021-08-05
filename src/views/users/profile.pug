@@ -1,4 +1,8 @@
 extends ../base
+include ../mixins/video
 
 block content 
-  span Hello
+  each info in videos
+    +video(info)
+  else
+    li No video..
