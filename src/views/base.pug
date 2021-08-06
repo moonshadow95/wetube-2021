@@ -3,6 +3,7 @@ html(leng="ko")
   head
     title #{pageTitle} | #{siteName}
     link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    link(rel="stylesheet" href="/static/css/styles.css")
   body
     header
       h1=pageTitle
@@ -28,3 +29,4 @@ html(leng="ko")
               a(href="/login") Log In
     main
       block content
+  include partials/footer
