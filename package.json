@@ -8,8 +8,8 @@
     "url": "git+https://github.com/moonshadow95/wetube-2021.git"
   },
   "scripts": {
-    "dev": "nodemon -L --exec babel-node src/init.js",
-    "assets": "webpack --config webpack.config.js"
+    "dev": "nodemon",
+    "assets": "webpack"
   },
   "author": "Chul Jong",
   "license": "ISC",

@@ -5,16 +5,14 @@ module.exports = {
   // source code (src)
   entry: "./src/client/js/main.js",
   mode: "development",
+  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
     }),
   ],
   // filename: 변경할 파일, path: 저장할 위치
-  output: {
-    filename: "js/main.js",
-    path: path.resolve(__dirname, "assets"),
-  },
+
   module: {
     rules: [
       {
