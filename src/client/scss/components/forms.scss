@@ -14,7 +14,7 @@ form {
   }
 }
 
-input {
+input:not(input[type="range"]) {
   all: unset;
   padding: 0.8em 1em;
   border-radius: 0.2em;
