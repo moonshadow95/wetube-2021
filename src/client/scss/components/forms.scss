@@ -1,0 +1,41 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 40em;
+  width: 70%;
+  margin: 0 auto;
+  &:not(.search__form) {
+    padding: 2em;
+    background-color: rgba($color: $bg, $alpha: 0.7);
+    border-radius: 0.5em;
+    border: 1px solid rgba($color: $white, $alpha: 0.1);
+  }
+}
+
+input {
+  all: unset;
+  padding: 0.8em 1em;
+  border-radius: 0.2em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: $black;
+  margin-bottom: 0.4em;
+  font-size: 1rem;
+  color: $white;
+  width: 90%;
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+input[type="submit"],
+.social__btn {
+  margin: 1em 2em;
+  border-radius: 0.2em;
+  background-color: $white;
+  color: $black;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
