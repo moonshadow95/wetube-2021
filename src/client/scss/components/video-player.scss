@@ -4,4 +4,47 @@
   video {
     width: 100%;
   }
+  .videoControls {
+    display: grid;
+    grid-template-columns: auto 4fr auto auto;
+    position: absolute;
+    margin: 0 auto;
+    bottom: 1em;
+    left: 0;
+    right: 0;
+    width: 95%;
+    padding: 0.5em;
+    box-sizing: border-box;
+    background-color: $black;
+    border-radius: 0.4em;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    justify-content: space-between;
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.5em;
+    }
+    &.showing {
+      opacity: 0.8;
+    }
+    .videoControls__play {
+      .videoControls__playBtn {
+        padding: 0.7em;
+      }
+      .videoControls__time {
+        font-size: 1rem;
+      }
+    }
+    .videoControls__volume {
+      justify-content: baseline;
+      span {
+        margin-left: 0.5em;
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
