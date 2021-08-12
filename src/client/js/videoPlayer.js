@@ -57,7 +57,7 @@ const handleLoadedData = () => {
   timeline.max = Math.floor(video.duration);
 };
 
-const handleTimeupdate = () => {
+const handleTimeUpdate = () => {
   currentTime.innerText = formatTime(Math.floor(video.currentTime));
   timeline.value = Math.floor(video.currentTime);
 };
@@ -93,12 +93,17 @@ const handleMouseLeave = () => {
   }, 3000);
 };
 
+const handleEnded = () => {
+  console.log("ended");
+};
+
 playBtn.addEventListener("click", handlePlay);
 video.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadeddata", handleLoadedData);
-video.addEventListener("timeupdate", handleTimeupdate);
+video.addEventListener("timeupdate", handleTimeUpdate);
+video.addEventListener("ended", handleEnded);
 video.addEventListener("mousemove", handleMousemove);
 video.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
