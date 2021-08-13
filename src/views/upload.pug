@@ -2,7 +2,7 @@ extends base.pug
 
 block content
   div
-    video#preview
+    video#preview(loop=true style="transform: scaleX(-1)")
     button#startBtn START RECORDING
   if errorMessage
     span=errorMessage
