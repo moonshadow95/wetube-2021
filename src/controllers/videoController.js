@@ -43,6 +43,7 @@ export const postEdit = async (req, res) => {
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
   if (String(video.owner) !== _id) {
+    req.flash("error", "Not Authorized.");
     return res.status(403).redirect("/");
   }
   await Video.findByIdAndUpdate(id, {
@@ -51,8 +52,10 @@ export const postEdit = async (req, res) => {
     hashtags: Video.formatHashtags(hashtags),
   });
   if (String(video.owner) !== _id) {
+    req.flash("error", "You can't edit this video.");
     return res.status(403).redirect("/");
   }
+  req.flash("success", "Updated.");
   return res.redirect(`/videos/${id}`);
 };
 
@@ -78,6 +81,7 @@ export const postUpload = async (req, res) => {
     const user = await User.findById(_id);
     user.videos.push(newVideo._id);
     user.save();
+    req.flash("success", "Uploaded.");
     return res.redirect("/");
   } catch (error) {
     return res.status(400).render("upload", {
