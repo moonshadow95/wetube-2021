@@ -12,6 +12,7 @@ const videoSchema = new mongoose.Schema({
     rating: { type: Number, default: 0, required: true },
   },
   owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
+  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Comment" }],
 });
 
 videoSchema.static("formatHashtags", function (hashtags) {
@@ -22,6 +23,6 @@ videoSchema.static("formatHashtags", function (hashtags) {
     );
 });
 
-const movieModel = mongoose.model("Video", videoSchema);
+const Video = mongoose.model("Video", videoSchema);
 
-export default movieModel;
+export default Video;
