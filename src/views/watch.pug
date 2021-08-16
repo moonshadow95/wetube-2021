@@ -19,16 +19,39 @@ block content
       div
         span#fullScreen
           i.fas.fa-expand
-  //- div
-  //-   p=video.description
-  //-   small=video.createdAt
-  //- div
-  //-   small Uploaded by 
-  //-     a(href=`/users/${video.owner._id}`)=video.owner.username
-  //- if String(video.owner._id) === String(loggedInUser._id)
-  //-   a(href=`${video.id}/edit`) Edit Video &rarr;
-  //-   br
-  //-   a(href=`${video.id}/delete`) Delete Video &rarr;
+  div.video__data
+    h1.video__title=video.title
+    if video.meta.views<=1 
+      span #{video.meta.views} view
+    else
+      span #{video.meta.views} views
+    p.video__description=video.description
+    small.video__createdAt=video.createdAt
+    small.video__owner Uploaded by 
+      a(href=`/users/${video.owner._id}`)=video.owner.username
+  if String(video.owner._id) === String(loggedInUser._id)
+    a(href=`${video.id}/edit`) Edit Video &rarr;
+    br
+    a(href=`${video.id}/delete`) Delete Video &rarr;
+  
+  if loggedIn
+    div.video__add-comments
+      form.video__comment-form#commentForm
+        textarea(cols="30" rows="10" placeholder="Write a comment" value="hi")
+        button Add comment
 
+  div.video__comments
+    ul
+      each comment in video.comments.reverse()
+        
+        li.video__comment
+          img.comment__avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
+          div.comment__metadata
+            div
+              span.comment__owner owner
+              span.comment__createdAt=comment.createdAt.toISOString().substr(0,19)
+            div.comment__text
+              span=comment.text
 block scripts
   script(src="/static/js/videoPlayer.js") 
+  script(src="/static/js/commentSection.js") 
