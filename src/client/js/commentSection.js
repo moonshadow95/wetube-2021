@@ -1,7 +1,6 @@
-import { async } from "regenerator-runtime";
-
 const videoContainer = document.querySelector("#videoContainer");
 const form = document.querySelector("#commentForm");
+const submitBtn = form.querySelector("button");
 
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -19,6 +18,15 @@ const handleSubmit = async (event) => {
   textarea.value = "";
 };
 
+const handleKeypress = (event) => {
+  const key = event.code;
+  if (key === "Enter") {
+    submitBtn.click();
+  }
+  return;
+};
+
 if (form) {
   form.addEventListener("submit", handleSubmit);
+  form.addEventListener("keypress", handleKeypress);
 }

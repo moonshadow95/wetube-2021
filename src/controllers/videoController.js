@@ -133,7 +133,7 @@ export const registerView = async (req, res) => {
   return res.sendStatus(200);
 };
 
-export const createComemnt = async (req, res) => {
+export const createComment = async (req, res) => {
   const {
     session: { user },
     body: { text },
