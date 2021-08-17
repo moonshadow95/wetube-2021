@@ -46,7 +46,7 @@ block content
           img.comment__avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
           div.comment__metadata
             div
-              span.comment__owner owner
+              span.comment__owner=video.owner.username
               span.comment__createdAt=comment.createdAt.toISOString().substr(0,19)
             div.comment__text
               span=comment.text
