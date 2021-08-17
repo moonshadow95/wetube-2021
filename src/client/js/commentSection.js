@@ -2,15 +2,20 @@ const videoContainer = document.querySelector("#videoContainer");
 const form = document.querySelector("#commentForm");
 const submitBtn = form.querySelector("button");
 
-const addComment = (text) => {
+const addComment = (text, id) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
+  newComment.dataset.id = id;
   newComment.className = "video__comment";
   const span = document.createElement("span");
-  const avatar = document.createElement("img");
+  const button = document.createElement("button");
+  button.className = "comment__delete";
+  const deleteBtn = document.createElement("i");
+  deleteBtn.className = "far fa-trash-alt";
+  button.prepend(deleteBtn);
   span.innerText = text;
   newComment.appendChild(span);
-  newComment.appendChild(avatar);
+  span.appendChild(button);
   videoComments.prepend(newComment);
 };
 const handleSubmit = async (event) => {
@@ -21,14 +26,15 @@ const handleSubmit = async (event) => {
   if (text === "") {
     return;
   }
-  const { status } = await fetch(`/api/videos/${videoId}/comment`, {
+  const response = await fetch(`/api/videos/${videoId}/comment`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text }),
   });
-  textarea.value = "";
-  if (status === 201) {
-    addComment(text);
+  if (response.status === 201) {
+    const { newCommentId } = await response.json();
+    textarea.value = "";
+    addComment(text, newCommentId);
   }
 };
 
