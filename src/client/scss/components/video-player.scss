@@ -40,7 +40,20 @@
       }
     }
     .videoControls__volume {
-      justify-content: baseline;
+      input {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+        top: -2em;
+        transform: rotate(-90deg);
+        transform-origin: 10%;
+        transition: opacity 250ms;
+      }
+      &:hover {
+        input {
+          opacity: 1;
+        }
+      }
       span {
         margin-left: 0.5em;
         i {
@@ -48,5 +61,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 70em) {
+  #videoContainer {
+    max-width: 100% !important;
   }
 }

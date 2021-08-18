@@ -40,6 +40,12 @@ main {
   margin-top: 2em;
 }
 
+@media screen and (max-width: 55em) {
+  main {
+    max-width: 100% !important;
+  }
+}
+
 @keyframes drop-in-fade-out {
   0% {
     opacity: 0;
