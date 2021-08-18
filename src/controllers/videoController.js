@@ -1,7 +1,8 @@
 import Video from "../models/Video";
 import User from "../models/User";
 import Comment from "../models/Comment";
-import { async } from "regenerator-runtime";
+import url from "url";
+import session from "express-session";
 
 export const home = async (req, res) => {
   const videos = await Video.find({})
@@ -155,4 +156,28 @@ export const createComment = async (req, res) => {
   return res
     .status(201)
     .json({ newCommentId: comment._id, user, createdAt: comment.createdAt });
+};
+
+export const deleteComment = async (req, res) => {
+  const {
+    params: { id: commentId },
+    session: {
+      user: { _id: loggedInUser },
+    },
+  } = req;
+  const videoId = req.headers.referer.split("videos/")[1];
+  const comment = await Comment.findById(commentId);
+  const owner = comment.owner;
+
+  if (loggedInUser !== owner.toString()) {
+    req.flash("error", "Not Authorized.");
+    return res.sendStatus(404);
+  }
+
+  const video = await Video.findById(videoId);
+  await Comment.deleteOne(comment);
+  await video.comments.remove(commentId);
+  video.save();
+
+  return res.sendStatus(201);
 };

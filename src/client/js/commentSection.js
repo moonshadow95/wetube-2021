@@ -13,16 +13,16 @@ const addComment = (text, newCommentId, user, createdAt) => {
   const commentOwner = document.createElement("span");
   const commentCreatedAt = document.createElement("span");
   const commentText = document.createElement("span");
-  const button = document.createElement("button");
-  const deleteBtn = document.createElement("i");
+  const deleteBtn = document.createElement("button");
+  const deleteIcon = document.createElement("i");
   newComment.dataset.id = newCommentId;
   newComment.className = "video__comment";
   commentMetadata.className = "comment__metadata";
   divCommentText.className = "comment__text";
   commentOwner.className = "comment__owner";
   commentCreatedAt.className = "comment__createdAt";
-  button.className = "comment__delete";
-  deleteBtn.className = "far fa-trash-alt";
+  deleteBtn.className = "comment__delete";
+  deleteIcon.className = "far fa-trash-alt";
 
   newComment.appendChild(commentMetadata);
   commentMetadata.appendChild(divCol1);
@@ -31,10 +31,10 @@ const addComment = (text, newCommentId, user, createdAt) => {
   divCol1.appendChild(commentCreatedAt);
   commentCreatedAt.innerText = createdAt.substr(0, 19);
   commentMetadata.appendChild(divCommentText);
-  button.prepend(deleteBtn);
+  deleteBtn.prepend(deleteIcon);
   divCommentText.appendChild(commentText);
   commentText.innerText = text;
-  divCommentText.appendChild(button);
+  divCommentText.appendChild(deleteBtn);
   videoComments.prepend(newComment);
 
   if (!user.avatarUrl) {
@@ -48,6 +48,8 @@ const addComment = (text, newCommentId, user, createdAt) => {
     avatar.className = "comment__avatar";
     newComment.prepend(avatar);
   }
+
+  deleteBtn.addEventListener("click", handleDelete);
 };
 const handleSubmit = async (event) => {
   event.preventDefault();
@@ -75,9 +77,10 @@ const handleDelete = async (event) => {
   const response = await fetch(`/api/comments/${commentId}/delete`, {
     method: "DELETE",
   });
-  if (response.status === 200) {
+  if (response.status === 201) {
     comment.remove();
   }
+  console.log("hi");
 };
 
 const handleKeypress = (event) => {
