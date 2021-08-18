@@ -146,6 +146,7 @@ export const createComment = async (req, res) => {
   const comment = await Comment.create({
     text,
     owner: user._id,
+    username: user.username,
     avatar: user.avatarUrl,
     video: id,
   });

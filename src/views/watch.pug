@@ -49,7 +49,7 @@ block content
             img.comment__avatar(src="/" + comment.avatar alt="Avatar image")
           div.comment__metadata
             div
-              span.comment__owner=video.owner.username
+              span.comment__owner=comment.username
               span.comment__createdAt=comment.createdAt.toISOString().substr(0,19)
             div.comment__text
               span=comment.text

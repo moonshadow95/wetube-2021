@@ -4,7 +4,7 @@ mixin video(video)
     div.video-mixin__data
       span.video-mixin__title=video.title
       div.video-mixin__meta
-        span #{video.owner.username} •
+        span #{video.owner.username} • 
         if video.meta.views<=1 
           span #{video.meta.views} view
         else
