@@ -43,15 +43,19 @@ block content
     ul
       each comment in video.comments.reverse()
         li.video__comment(data-id=comment._id)
-          img.comment__avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
+          if !comment.avatar
+            i.fas.fa-user-circle.comment__default-avatar
+          else 
+            img.comment__avatar(src="/" + comment.avatar alt="Avatar image")
           div.comment__metadata
             div
               span.comment__owner=video.owner.username
               span.comment__createdAt=comment.createdAt.toISOString().substr(0,19)
             div.comment__text
               span=comment.text
-              button.comment__delete
-                i.far.fa-trash-alt
+              if String(comment.owner._id) === String(loggedInUser._id)
+                button.comment__delete#deleteBtn 
+                  i.far.fa-trash-alt
 block scripts
   script(src="/static/js/videoPlayer.js") 
   script(src="/static/js/commentSection.js") 

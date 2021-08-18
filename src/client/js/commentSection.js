@@ -6,7 +6,6 @@ const addComment = (text, newCommentId, user, createdAt) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   const avatarUrl = user.avatarUrl;
-  const avatar = document.createElement("img");
   const commentMetadata = document.createElement("div");
   const divCol1 = document.createElement("div");
   const divCommentText = document.createElement("div");
@@ -17,8 +16,6 @@ const addComment = (text, newCommentId, user, createdAt) => {
   const deleteBtn = document.createElement("i");
   newComment.dataset.id = newCommentId;
   newComment.className = "video__comment";
-  avatar.src = `/${avatarUrl}`;
-  avatar.className = "comment__avatar";
   commentMetadata.className = "comment__metadata";
   divCommentText.className = "comment__text";
   commentOwner.className = "comment__owner";
@@ -34,11 +31,22 @@ const addComment = (text, newCommentId, user, createdAt) => {
   commentCreatedAt.innerText = createdAt.substr(0, 19);
   commentMetadata.appendChild(divCommentText);
   button.prepend(deleteBtn);
-  newComment.prepend(avatar);
   divCommentText.appendChild(commentText);
   commentText.innerText = text;
   divCommentText.appendChild(button);
   videoComments.prepend(newComment);
+
+  if (!user.avatarUrl) {
+    const defaultAvatar = document.createElement("i");
+    defaultAvatar.className = "fas fa-user-circle";
+    defaultAvatar.classList.add("comment__default-avatar");
+    newComment.prepend(defaultAvatar);
+  } else {
+    const avatar = document.createElement("img");
+    avatar.src = `/${avatarUrl}`;
+    avatar.className = "comment__avatar";
+    newComment.prepend(avatar);
+  }
 };
 const handleSubmit = async (event) => {
   event.preventDefault();
