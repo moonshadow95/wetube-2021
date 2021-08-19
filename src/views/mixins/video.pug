@@ -2,10 +2,16 @@ mixin video(video)
   a(href=`/videos/${video.id}`).video-mixin
     div.video-mixin__thumb(style=`background-image:url(${video.thumbnailUrl});background-size:cover;background-position:center;`)
     div.video-mixin__data
-      span.video-mixin__title=video.title
+      div.video-mixin__title-container
+        if !video.owner.avatarUrl
+          i.fas.fa-user-circle.video-mixin__default-avatar
+        else 
+          img.video-mixin__avatar(src="/" + video.owner.avatarUrl alt="Avatar image")
+        span.video-mixin__title=video.title
       div.video-mixin__meta
         span #{video.owner.username} • 
         if video.meta.views<=1 
-          span #{video.meta.views} view
+          span #{video.meta.views} view 
         else
-          span #{video.meta.views} views
+          span #{video.meta.views} views 
+        small.createdAt=Number(video.createdAt)

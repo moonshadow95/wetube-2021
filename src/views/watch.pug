@@ -30,8 +30,7 @@ block content
       else
         span #{video.meta.views} views
       span  · 
-      small.video__createdAt=video.createdAt
-
+      small.video__createdAt=video.createdAt.toISOString().substr(0,10)
     div.video__owner-description
       div.video__owner
         if !video.owner.avatarUrl
@@ -62,7 +61,7 @@ block content
           div.comment__metadata
             div
               span.comment__owner=comment.username
-              span.comment__createdAt=comment.createdAt.toISOString().substr(0,19)
+              span.createdAt=Number(comment.createdAt)
             div.comment__text
               span=comment.text
               if String(comment.owner._id) === String(loggedInUser._id)
