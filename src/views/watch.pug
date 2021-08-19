@@ -20,23 +20,35 @@ block content
         span#fullScreen
           i.fas.fa-expand
   div.video__data
+    div.video__hashtags
+      each hashtag in video.hashtags
+        a(href="")=hashtag
     h1.video__title=video.title
-    if video.meta.views<=1 
-      span #{video.meta.views} view
-    else
-      span #{video.meta.views} views
-    p.video__description=video.description
-    small.video__createdAt=video.createdAt
-    small.video__owner Uploaded by 
-      a(href=`/users/${video.owner._id}`)=video.owner.username
-    if String(video.owner._id) === String(loggedInUser._id)
-      a(href=`${video.id}/edit`).video__edit Edit Video &rarr;
-      a(href=`${video.id}/delete`).video__edit Delete Video &rarr;
+    div.video__view-createdAt
+      if video.meta.views<=1 
+        span #{video.meta.views} view
+      else
+        span #{video.meta.views} views
+      span  · 
+      small.video__createdAt=video.createdAt
+
+    div.video__owner-description
+      div.video__owner
+        if !video.owner.avatarUrl
+          i.fas.fa-user-circle.video__default-avatar
+        else 
+          img.video__avatar(src="/" + video.owner.avatarUrl alt="Avatar image") 
+        a(href=`/users/${video.owner._id}`)=video.owner.username
+      p.video__description=video.description
+      if String(video.owner._id) === String(loggedInUser._id)
+        div.video__edit
+          a(href=`${video.id}/edit`) Edit Video &rarr;
+          a(href=`${video.id}/delete`) Delete Video &rarr;
   
   if loggedIn
     div.video__add-comments
       form.video__comment-form#commentForm
-        textarea(cols="30" rows="10" placeholder="Write a comment" value="hi")
+        textarea(cols="30" rows="10" placeholder="Write a comment..." value="hi")
         button Add comment
 
   div.video__comments
