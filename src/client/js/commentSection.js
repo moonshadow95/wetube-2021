@@ -5,7 +5,7 @@ const form = document.querySelector("#commentForm");
 const submitBtn = form.querySelector("button");
 const deleteBtns = document.querySelectorAll("#deleteBtn");
 
-const addComment = (text, newCommentId, user, createdAt) => {
+const addComment = (text, newCommentId, user, createdAt, isHeroku) => {
   const videoComments = document.querySelector(".video__comments ul");
   const newComment = document.createElement("li");
   const avatarUrl = user.avatarUrl;
@@ -46,7 +46,11 @@ const addComment = (text, newCommentId, user, createdAt) => {
     newComment.prepend(defaultAvatar);
   } else {
     const avatar = document.createElement("img");
-    avatar.src = avatarUrl;
+    if (isHeroku) {
+      avatar.src = avatarUrl;
+    } else {
+      avatar.src = "/" + avatarUrl;
+    }
     avatar.alt = "Avatar image";
     avatar.className = "comment__avatar";
     newComment.prepend(avatar);

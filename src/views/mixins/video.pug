@@ -6,7 +6,10 @@ mixin video(video)
         if !video.owner.avatarUrl
           i.fas.fa-user-circle.video-mixin__default-avatar
         else 
-          img.video-mixin__avatar(src=video.owner.avatarUrl alt="Avatar image")
+          if locals.isHeroku
+            img.video-mixin__avatar(src=video.owner.avatarUrl alt="Avatar image")
+          else
+            img.video-mixin__avatar(src="/" + video.owner.avatarUrl alt="Avatar image")
         span.video-mixin__title=video.title
       div.video-mixin__meta
         span #{video.owner.username} • 

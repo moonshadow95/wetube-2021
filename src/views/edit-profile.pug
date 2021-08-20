@@ -7,7 +7,10 @@ block content
     if !loggedInUser.avatarUrl || loggedInUser.avatarUrl.includes("github")
       i.fas.fa-user-circle.fa-8x
     else
-      img.avatar(src=loggedInUser.avatarUrl alt="Avatar image")
+      if locals.isHeroku
+        img.avatar(src=loggedInUser.avatarUrl alt="Avatar image")
+      else
+        img.avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
     label(for ='avatar') Avatar
     input(type='file' id='avatar' name='avatar' accept="image/*")
     input(name="email" type="email" placeholder="E-mail" value=loggedInUser.email)

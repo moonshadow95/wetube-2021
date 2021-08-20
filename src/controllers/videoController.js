@@ -76,8 +76,8 @@ export const postUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl: video[0].location,
-      thumbnailUrl: thumbnail[0].location,
+      fileUrl: res.locals.isHeroku ? video[0].location : video[0].path,
+      thumbnailUrl: res.locals.isHeroku ? thumbnail[0].location : video[0].path,
       hashtags: Video.formatHashtags(hashtags),
       owner: _id,
     });
@@ -140,6 +140,9 @@ export const createComment = async (req, res) => {
     body: { text },
     params: { id },
   } = req;
+  const {
+    locals: { isHeroku },
+  } = res;
   const video = await Video.findById(id);
   if (!video) {
     return res.sendStatus(404);
@@ -157,6 +160,7 @@ export const createComment = async (req, res) => {
     newCommentId: comment._id,
     user,
     createdAt: Number(comment.createdAt),
+    isHeroku,
   });
 };
 

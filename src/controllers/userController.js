@@ -166,11 +166,15 @@ export const postEditProfile = async (req, res) => {
       });
     }
   }
-  console.log(file);
+
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.location : avatarUrl,
+      avatarUrl: file
+        ? res.locals.isHeroku
+          ? file.path
+          : file.path
+        : avatarUrl,
       name,
       email: newEmail,
       username: newUsername,
@@ -180,7 +184,6 @@ export const postEditProfile = async (req, res) => {
   );
   req.session.user = updatedUser;
   req.flash("success", "Updated.");
-
   return res.redirect("/users/edit");
 };
 
