@@ -1,3 +1,5 @@
+import { displayedAt } from "./createdAtFormat";
+
 const videoContainer = document.querySelector("#videoContainer");
 const form = document.querySelector("#commentForm");
 const submitBtn = form.querySelector("button");
@@ -20,7 +22,7 @@ const addComment = (text, newCommentId, user, createdAt) => {
   commentMetadata.className = "comment__metadata";
   divCommentText.className = "comment__text";
   commentOwner.className = "comment__owner";
-  commentCreatedAt.className = "comment__createdAt";
+  commentCreatedAt.className = "createdAt";
   deleteBtn.className = "comment__delete";
   deleteIcon.className = "far fa-trash-alt";
 
@@ -29,7 +31,7 @@ const addComment = (text, newCommentId, user, createdAt) => {
   divCol1.appendChild(commentOwner);
   commentOwner.innerText = user.username;
   divCol1.appendChild(commentCreatedAt);
-  commentCreatedAt.innerText = createdAt.substr(0, 19);
+  commentCreatedAt.innerText = displayedAt(createdAt);
   commentMetadata.appendChild(divCommentText);
   deleteBtn.prepend(deleteIcon);
   divCommentText.appendChild(commentText);
