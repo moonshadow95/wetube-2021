@@ -54,7 +54,7 @@ block content
     ul
       each comment in video.comments.reverse()
         li.video__comment(data-id=comment._id)
-          if !comment.avatar
+          if !comment.avatar || comment.avatar.includes("github")
             i.fas.fa-user-circle.comment__default-avatar
           else 
             img.comment__avatar(src="/" + comment.avatar alt="Avatar image")

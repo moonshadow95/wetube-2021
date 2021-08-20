@@ -4,7 +4,7 @@ block content
   if errorMessage
     span=errorMessage
   form(method="POST", enctype="multipart/form-data").edit-profile__form
-    if !loggedInUser.avatarUrl
+    if !loggedInUser.avatarUrl || loggedInUser.avatarUrl.includes("github")
       i.fas.fa-user-circle.fa-8x
     else
       img.avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")

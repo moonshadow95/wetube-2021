@@ -18,7 +18,7 @@ header
           a(href="/users/logout") Log Out
         li
           a(href=`/users/${loggedInUser._id}`)
-            if !loggedInUser.avatarUrl
+            if !loggedInUser.avatarUrl || loggedInUser.avatarUrl.includes("github")
               i.fas.fa-user-circle.fa-2x
             else
               img.header__avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
