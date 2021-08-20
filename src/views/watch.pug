@@ -2,7 +2,7 @@ extends base
 
 block content
   div#videoContainer(data-id=video._id)
-    video(src=`/${video.fileUrl}`)
+    video(src=video.fileUrl)
     div#videoControls.videoControls
       div.videoControls__play
         span#play.videoControls__playBtn
@@ -36,7 +36,7 @@ block content
         if !video.owner.avatarUrl
           i.fas.fa-user-circle.video__default-avatar
         else 
-          img.video__avatar(src="/" + video.owner.avatarUrl alt="Avatar image") 
+          img.video__avatar(src=video.owner.avatarUrl alt="Avatar image") 
         a(href=`/users/${video.owner._id}`)=video.owner.username
       p.video__description=video.description
       if String(video.owner._id) === String(loggedInUser._id)
@@ -57,7 +57,7 @@ block content
           if !comment.avatar || comment.avatar.includes("github")
             i.fas.fa-user-circle.comment__default-avatar
           else 
-            img.comment__avatar(src="/" + comment.avatar alt="Avatar image")
+            img.comment__avatar(src=comment.avatar alt="Avatar image")
           div.comment__metadata
             div
               span.comment__owner=comment.username

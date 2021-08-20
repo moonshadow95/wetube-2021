@@ -6,7 +6,7 @@ block content
         if !loggedInUser.avatarUrl || loggedInUser.avatarUrl.includes("github")
             i.fas.fa-user-circle.fa-8x
         else
-            img.avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
+            img.avatar(src=loggedInUser.avatarUrl alt="Avatar image")
         h3=user.username
     div.video-grid
         each video in user.videos

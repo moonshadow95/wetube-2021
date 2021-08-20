@@ -76,8 +76,8 @@ export const postUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl: video[0].path,
-      thumbnailUrl: thumbnail[0].path,
+      fileUrl: video[0].location,
+      thumbnailUrl: thumbnail[0].location,
       hashtags: Video.formatHashtags(hashtags),
       owner: _id,
     });
@@ -153,13 +153,11 @@ export const createComment = async (req, res) => {
   });
   video.comments.push(comment._id);
   video.save();
-  return res
-    .status(201)
-    .json({
-      newCommentId: comment._id,
-      user,
-      createdAt: Number(comment.createdAt),
-    });
+  return res.status(201).json({
+    newCommentId: comment._id,
+    user,
+    createdAt: Number(comment.createdAt),
+  });
 };
 
 export const deleteComment = async (req, res) => {

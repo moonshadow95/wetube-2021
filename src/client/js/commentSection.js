@@ -46,7 +46,8 @@ const addComment = (text, newCommentId, user, createdAt) => {
     newComment.prepend(defaultAvatar);
   } else {
     const avatar = document.createElement("img");
-    avatar.src = `/${avatarUrl}`;
+    avatar.src = avatarUrl;
+    avatar.alt = "Avatar image";
     avatar.className = "comment__avatar";
     newComment.prepend(avatar);
   }
