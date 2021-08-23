@@ -1,8 +1,10 @@
 // video mixin
 .video-mixin {
   .video-mixin__thumb {
-    height: 220px;
-    width: 100%;
+    img {
+      height: 220px;
+      width: 100%;
+    }
   }
   .video-mixin__data {
     padding: 0px 15px;

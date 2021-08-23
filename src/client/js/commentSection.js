@@ -46,13 +46,14 @@ const addComment = (text, newCommentId, user, createdAt, isHeroku) => {
     newComment.prepend(defaultAvatar);
   } else {
     const avatar = document.createElement("img");
-    if (isHeroku) {
+    if (!isHeroku) {
       avatar.src = avatarUrl;
     } else {
       avatar.src = "/" + avatarUrl;
     }
     avatar.alt = "Avatar image";
     avatar.className = "comment__avatar";
+    avatar.crossOrigin = "";
     newComment.prepend(avatar);
   }
 

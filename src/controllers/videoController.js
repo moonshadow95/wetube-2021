@@ -5,9 +5,7 @@ import url from "url";
 import session from "express-session";
 
 export const home = async (req, res) => {
-  const videos = await Video.find({})
-    .sort({ createdAt: "desc" })
-    .populate("owner");
+  const videos = await Video.find({}).populate("owner");
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -77,7 +75,9 @@ export const postUpload = async (req, res) => {
       title,
       description,
       fileUrl: res.locals.isHeroku ? video[0].location : video[0].path,
-      thumbnailUrl: res.locals.isHeroku ? thumbnail[0].location : video[0].path,
+      thumbnailUrl: res.locals.isHeroku
+        ? thumbnail[0].location
+        : thumbnail[0].path,
       hashtags: Video.formatHashtags(hashtags),
       owner: _id,
     });
@@ -93,7 +93,6 @@ export const postUpload = async (req, res) => {
     });
   }
 };
-
 export const deleteVideo = async (req, res) => {
   const { id } = req.params;
   const {

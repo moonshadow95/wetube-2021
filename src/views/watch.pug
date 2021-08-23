@@ -2,7 +2,7 @@ extends base
 
 block content
   div#videoContainer(data-id=video._id)
-    if locals.inHeroku 
+    if locals.isHeroku 
       video(src=video.fileUrl)
     else
       video(src="/" + video.fileUrl)
@@ -39,10 +39,10 @@ block content
         if !video.owner.avatarUrl
           i.fas.fa-user-circle.video__default-avatar
         else 
-          if locals.isHeroku
-            img.video__avatar(src=video.owner.avatarUrl alt="Avatar image") 
+          if !locals.isHeroku
+            img.video__avatar(src=video.owner.avatarUrl alt="Avatar image" crossorigin) 
           else
-            img.video__avatar(src="/" + video.owner.avatarUrl alt="Avatar image") 
+            img.video__avatar(src="/" + video.owner.avatarUrl alt="Avatar image" crossorigin) 
         a(href=`/users/${video.owner._id}`)=video.owner.username
       p.video__description=video.description
       if String(video.owner._id) === String(loggedInUser._id)
