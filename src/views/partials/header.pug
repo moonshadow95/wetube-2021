@@ -21,10 +21,10 @@ header
             if !loggedInUser.avatarUrl
               i.fas.fa-user-circle.fa-2x
             else
-              if locals.isHeroku || loggedInUser.socialOnly
-                img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image")
+              if loggedInUser.avatarUrl.includes("github")
+                img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
               else
-                img.header__avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image")
+                img.header__avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image" crossorigin )
       else
         li 
           a(href="/join").header__btn Join

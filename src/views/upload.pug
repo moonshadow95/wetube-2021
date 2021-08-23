@@ -3,7 +3,7 @@ extends base.pug
 block content
   div.upload__container
     div.upload__video
-      video#preview(loop=true style="transform: scaleX(-1)")
+      video#preview(loop=true style="transform: scaleX(-1)" crossorigin="isolation" )
       button#actionBtn.form__btn Recording Shorts 
         i.fas.fa-video
     if errorMessage
