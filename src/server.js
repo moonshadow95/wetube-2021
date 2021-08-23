@@ -29,11 +29,14 @@ app.use(localsMiddleware);
 app.use((req, res, next) => {
   res.header(
     "Cross-Origin-Resource-Policy",
-    "https://wetube-moonshadow.s3.ap-northeast-2.amazonaws.com"
+    "https://wetube-moonshadow.s3.amazonaws.com"
   );
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://wetube-moonshadow.s3.amazonaws.com"
+  );
   next();
 });
 app.use("/uploads", express.static("uploads"));
