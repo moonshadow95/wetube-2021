@@ -27,7 +27,11 @@ app.use(
 app.use(flash());
 app.use(localsMiddleware);
 app.use((req, res, next) => {
-  res.header("Cross-Origin-Resource-Policy", "*");
+  res.header(
+    "Cross-Origin-Resource-Policy",
+    "https://wetube-moonshadow.s3.ap-northeast-2.amazonaws.com"
+  );
+  res.header("Cross-Origin-Embedder-Policy", "credentialless");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
   next();
 });
