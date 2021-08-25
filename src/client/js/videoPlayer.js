@@ -50,14 +50,12 @@ const handleVolumeChange = (event) => {
 };
 
 const formatTime = (seconds) => {
-  console.log(new Date(seconds * 1000).toISOString().substr(14, 5));
   return new Date(seconds * 1000).toISOString().substr(14, 5);
 };
 
 const handleLoadedMetadata = () => {
   totalTime.innerText = formatTime(Math.floor(video.duration));
-  console.log(formatTime(Math.floor(video.duration)));
-  console.log(totalTime.innerText);
+  console.log(video.duration);
   timeline.max = Math.floor(video.duration);
 };
 
