@@ -27,7 +27,6 @@ app.use(
 app.use(flash());
 app.use(localsMiddleware);
 app.use((req, res, next) => {
-  res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
