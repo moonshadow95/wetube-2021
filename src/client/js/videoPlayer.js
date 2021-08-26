@@ -59,6 +59,7 @@ const handleLoadedMetadata = () => {
   if (timeline.max) {
     video.setAttribute("crossorigin", "");
   }
+  console.log("loadedmetadata");
 };
 
 const handleTimeUpdate = () => {
