@@ -54,12 +54,14 @@ const formatTime = (seconds) => {
 };
 
 const handleLoadedMetadata = () => {
-  totalTime.innerText = formatTime(Math.floor(video.duration)).toString();
-  timeline.setAttribute("max", Math.floor(video.duration));
-  if (timeline.max) {
-    video.setAttribute("crossorigin", "");
+  if (video.readyState >= 4) {
+    totalTime.innerText = formatTime(Math.floor(video.duration)).toString();
+    timeline.setAttribute("max", Math.floor(video.duration));
+    if (timeline.max) {
+      video.setAttribute("crossorigin", "");
+      console.log(video.readyState);
+    }
   }
-  console.log("loadedmetadata");
 };
 
 const handleTimeUpdate = () => {
