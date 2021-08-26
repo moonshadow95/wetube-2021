@@ -43,10 +43,13 @@ const handleVolumeChange = (event) => {
   } = event;
   if (video.muted) {
     video.muted = false;
-    muteBtn.innerText = "Mute";
+    muteBtnIcon.classList = "fas fa-volume-up";
   }
   volumeValue = value;
   video.volume = value;
+  if (value === "0") {
+    handleMute();
+  }
 };
 
 const formatTime = (seconds) => {
@@ -109,7 +112,7 @@ playBtn.addEventListener("click", handlePlay);
 video.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
-video.addEventListener("durationchange", handleLoadedMetadata);
+video.addEventListener("canplay", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("ended", handleEnded);
 video.addEventListener("mousemove", handleMousemove);
