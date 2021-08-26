@@ -3,11 +3,11 @@ include ../mixins/video
 
 block content 
     div.profile__data
-        if !loggedInUser.avatarUrl
-            i.fas.fa-user-circle.fa-8x
+        if loggedInUser.avatarUrl.includes("github")
+            img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
         else
-            if loggedInUser.avatarUrl.includes("github")
-                img.avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin)
+            if !loggedInUser.avatarUrl
+                i.fas.fa-user-circle.fa-2x
             else 
                 img.avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image" crossorigin)
         h3=user.username
