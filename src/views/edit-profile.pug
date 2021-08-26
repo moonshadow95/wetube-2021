@@ -5,7 +5,7 @@ block content
     span=errorMessage
   form(method="POST", enctype="multipart/form-data").edit-profile__form
     if loggedInUser.avatarUrl.includes("github")
-      img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
+      img.avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
     else
       if !loggedInUser.avatarUrl
         i.fas.fa-user-circle.fa-2x
