@@ -32,7 +32,6 @@ app.use("/ffmpeg", express.static("node_modules/@ffmpeg/core/dist"));
 app.use((req, res, next) => {
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
   res.header("Cross-Origin-Opener-Policy", "same-origin");
-  res.header["acess-control-allow-origin"];
   next();
 });
 
