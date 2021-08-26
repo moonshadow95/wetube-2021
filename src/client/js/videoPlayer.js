@@ -52,6 +52,7 @@ const handleVolumeChange = (event) => {
 const formatTime = (seconds) => {
   return new Date(seconds * 1000).toISOString().substr(14, 5);
 };
+console.log("1" + video.readyState);
 
 const handleLoadedMetadata = () => {
   if (video.readyState >= 4) {
