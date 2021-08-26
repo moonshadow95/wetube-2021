@@ -31,7 +31,8 @@ app.use("/static", express.static("assets"));
 app.use("/ffmpeg", express.static("node_modules/@ffmpeg/core/dist"));
 app.use((req, res, next) => {
   res.header("Cross-Origin-Embedder-Policy", "require-corp");
-  res.header("Cross-Origin-Opener-Policy", "cross-origin");
+  res.header("Cross-Origin-Opener-Policy", "same-origin");
+  res.header("Cross-Origin-Resource-Policy", "cross-origin");
   next();
 });
 
