@@ -11,7 +11,9 @@ const fullScreenBtn = document.querySelector("#fullScreen");
 const fullScreenBtnIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.querySelector("#videoContainer");
 const videoControls = document.querySelector("#videoControls");
-
+if (video) {
+  video.setAttribute("crossorigin", "");
+}
 let controlsTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
