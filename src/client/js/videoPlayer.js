@@ -54,11 +54,11 @@ const formatTime = (seconds) => {
 };
 
 const handleLoadedMetadata = () => {
-  if (video) {
-    video.setAttribute("crossorigin", "");
-  }
   totalTime.innerText = formatTime(Math.floor(video.duration));
   timeline.max = Math.floor(video.duration);
+  if (timeline.max) {
+    video.setAttribute("crossorigin", "");
+  }
 };
 
 const handleTimeUpdate = () => {
