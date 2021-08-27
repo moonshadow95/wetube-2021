@@ -60,10 +60,7 @@ block content
           if !comment.avatar
             i.fas.fa-user-circle.comment__default-avatar
           else
-            if loggedInUser.avatarUrl.includes("github")
-              img.comment__avatar(src=comment.avatar alt="Avatar image" crossorigin)
-            else
-              img.comment__avatar(src="/" + comment.avatar alt="Avatar image" crossorigin)
+            img.comment__avatar(src=comment.avatar alt="Avatar image" crossorigin)
           div.comment__metadata
             div
               span.comment__owner=comment.username
