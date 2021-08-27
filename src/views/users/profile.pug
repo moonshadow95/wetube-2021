@@ -7,7 +7,7 @@ block content
             img.avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
         else
             if !loggedInUser.avatarUrl
-                i.fas.fa-user-circle.fa-2x
+                i.fas.fa-user-circle.fa-8x
             else 
                 img.avatar(src="/" + loggedInUser.avatarUrl alt="Avatar image" crossorigin)
         h3=user.username
