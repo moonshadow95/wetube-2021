@@ -18,13 +18,10 @@ header
           a(href="/users/logout") Log Out
         li
           a(href=`/users/${loggedInUser._id}`)
-            if loggedInUser.avatarUrl && loggedInUser.avatarUrl.includes("github")
-              img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
+            if !loggedInUser.avatarUrl
+              i.fas.fa-user-circle.fa-2x
             else
-              if !loggedInUser.avatarUrl
-                i.fas.fa-user-circle.fa-2x
-              else
-                img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
+              img.header__avatar(src=loggedInUser.avatarUrl alt="Avatar image" crossorigin )
       else
         li 
           a(href="/join").header__btn Join
