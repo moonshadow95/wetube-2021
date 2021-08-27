@@ -4,7 +4,7 @@ mixin video(video)
       img(src="/" + video.thumbnailUrl, alt="" crossorigin)
     div.video-mixin__data
       div.video-mixin__title-container
-        if loggedInUser.avatarUrl.includes("github")
+        if loggedInUser.avatarUrl && loggedInUser.avatarUrl.includes("github")
           img.video-mixin__avatar(src=video.owner.avatarUrl alt="Avatar image" crossorigin)
         else
           if !video.owner.avatarUrl
