@@ -8,13 +8,13 @@ import userRouter from "./router/userRouter";
 import videoRouter from "./router/videoRouter";
 import apiRouter from "./router/apiRouter";
 import { localsMiddleware } from "./middlewares";
-import favicon from "serve-favicon";
+// import favicon from "serve-favicon";
 
 const app = express();
 const logger = morgan("dev");
 app.set("views", process.cwd() + "/src/views");
 app.set("view engine", "pug");
-app.use(favicon(__dirname + "/public/favicon.ico"));
+// app.use(favicon(__dirname + "/public/favicon.ico"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(logger);
