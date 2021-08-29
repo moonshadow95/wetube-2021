@@ -1,5 +1,6 @@
 <img alt="Youtube" src="https://img.shields.io/badge/YouTube Clone%20-%23FF0000.svg?&style=for-the-badge&logo=YouTube&logoColor=white"/>
-# WETUBE
+
+WETUBE
 
 *Log in and shoot a shorts to upload your video and watch videos from others.*
 
