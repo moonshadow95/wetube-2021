@@ -52,7 +52,7 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
     Add crossorigin attribute to video tags and image tags and add specific values to response headers to resolve them.
 
     ```html
-    <video crossorigin></video>
+    <video crossorigin /> <img crossorigin />
     ```
 
     ```jsx
