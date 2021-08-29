@@ -36,8 +36,6 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
 
 ## 4. About Project
 
----
-
 ![wetube-overview](https://user-images.githubusercontent.com/73153617/131247212-98a44bba-4428-4082-8ec1-58a3c5bcd83e.gif)
 
 `- Make an account to log in, or log in with github account.`
@@ -51,8 +49,6 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
 `- Editing profile. (upload)`
 
 ## 5. 💥 Issue
-
----
 
 - Videos and images were not visible because of the cross-origin resource policy. ⇒ [https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cross-Origin_Resource_Policy_(CORP))
 
