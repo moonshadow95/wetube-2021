@@ -27,49 +27,17 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
 
 ## 2. Tech Stack
 
----
-
-[https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-
-![https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-[https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
-
-![https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-
-[https://img.shields.io/badge/Pug-FFF?style=for-the-badge&logo=pug&logoColor=A86454](https://img.shields.io/badge/Pug-FFF?style=for-the-badge&logo=pug&logoColor=A86454)
-
-![https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
-
-![https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
-
-![https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
-
----
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)![Pug](https://img.shields.io/badge/Pug-FFF?style=for-the-badge&logo=pug&logoColor=A86454)![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ## 3. Over View
 
----
-
-![Apple-iMac-Pro.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iMac-Pro.png)
-
-![Apple-iMac-Pro_5.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iMac-Pro_5.png)
-
-![Apple-iMac-Pro_2.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iMac-Pro_2.png)
-
-![Apple-iMac-Pro_4.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iMac-Pro_4.png)
-
-![Apple-iMac-Pro_3.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iMac-Pro_3.png)
-
-![Apple-iPad.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iPad.png)
-
-![Apple-iPhone-12-Pro-Graphite.png](WETUBE%202a0f8a0299364937a78a94b51e497a81/Apple-iPhone-12-Pro-Graphite.png)
+<img width="49%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247118-1901fd77-911c-436f-a00e-b4f8f58269b5.png"> <img width="49%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247120-740dfdeb-23e8-4f99-acd0-9474768742e4.png"> <img width="49%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247121-99042915-a93a-43ae-8351-876b26970d80.png"> <img width="49%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247122-2570b2e0-120a-4a0a-b748-59ed532806ae.png"> <img width="49%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247123-273cea09-c167-49a3-b1f5-9e514ec24690.png"> <img width="30%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247124-9910781e-ac1c-44ee-a87c-4c9be0abe117.png"> <img width="19%" alt="over view image" src="https://user-images.githubusercontent.com/73153617/131247125-1c37436c-c163-49a8-96f9-6062bfcc337d.png">
 
 ## 4. About Project
 
 ---
 
-![wetube-overview.gif](WETUBE%202a0f8a0299364937a78a94b51e497a81/wetube-overview.gif)
+![wetube-overview](https://user-images.githubusercontent.com/73153617/131247212-98a44bba-4428-4082-8ec1-58a3c5bcd83e.gif)
 
 `- Make an account to log in, or log in with github account.`
 
@@ -99,12 +67,9 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
     next();
     ```
 
-- handleloadedmetadata event가 동작하지 않음 ⇒ window가 load되면 실행하도록 바꿈
+- handleloadedmetadata event inoperative. =>  Changed to run after window loaded because there was only problem with heroku app.
 
 ## 6. 🚀 Things to Improvement
 
----
-
-- [ ]  Like👍&Dislike👎 Function
-
-[Wetube](https://www.notion.so/Wetube-bf6ca480904f4594ab2aefd78bd9167d)
+- [ ]  Like👍 & Dislike👎 Function!
+- etc...
