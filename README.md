@@ -38,15 +38,12 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
 
 ![wetube-overview](https://user-images.githubusercontent.com/73153617/131247212-98a44bba-4428-4082-8ec1-58a3c5bcd83e.gif)
 
-`- Make an account to log in, or log in with github account.`
-
-`- Record short(3s) video and upload.`
-
-`- Watch videos uploaded by users.`
-
-`- Create/delete comments.`
-
-`- Editing profile. (upload)`
+    - Make an account to log in, or log in with github account.
+    - Record short(3s) video and upload.
+    - Watch videos uploaded by users.
+    - Create/delete comments.
+    - If a user watch a video until the end, that video's view increases.
+    - Editing profile. (upload)
 
 ## 5. 💥 Issue
 
