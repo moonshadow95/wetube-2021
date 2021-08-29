@@ -14,8 +14,8 @@ Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshad
 2. [Tech Stack](#2-tech-stack)
 3. [Over View](#3-over-view)
 4. [About Project](#4-about-project)
-5. [Issue](#5-issue)
-6. [Things to Improvement](#6-Things-to-improvement)
+5. [Issue](#5--issue)
+6. [Things to Improvement](#6--Things-to-improvement)
 
 ## 1. Purpose of this project
 
