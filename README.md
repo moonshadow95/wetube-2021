@@ -1,29 +1,29 @@
+<img alt="Youtube" src="https://img.shields.io/badge/YouTube Clone%20-%23FF0000.svg?&style=for-the-badge&logo=YouTube&logoColor=white"/>
 # WETUBE
-
----
 
 *Log in and shoot a shorts to upload your video and watch videos from others.*
 
 Demo Link ⇒ [https://wetube-moonshadow.herokuapp.com/](https://wetube-moonshadow.herokuapp.com/)
 
+---
+
 ## 🔗 Index
 
-1. [Purpose of this project]()
-2. [Tech Stack]()
-3. [Over View]()
-4. [About Project]()
-5. [Issue]()
-6. [Things to Improvement]()
+1. [Purpose of this project](#1-purpose-of-this-project)
+2. [Tech Stack](#2-tech-stack)
+3. [Over View](#3-over-view)
+4. [About Project](#4-about-project)
+5. [Issue](#5-issue)
+6. [Things to Improvement](#6-Things-to-improvement)
 
 ## 1. Purpose of this project
-
----
 
 - Make application with Node.js
 - Understanding SSR(Server Side Rendering)
 - How to upload and save files in DB
 - How to make account(password hashing, user login)
 - How to use pug in sexy way
+- How to deploy app using AWS S3 and Heroku, mongoDB
 
 ## 2. Tech Stack
 
